@@ -1,6 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <html>
 <body>
 <h1>ログイン</h1>
-<%--<a href="login">ログイン</a>--%>
 </body>
 </html>

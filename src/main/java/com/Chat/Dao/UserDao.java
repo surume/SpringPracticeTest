@@ -18,11 +18,37 @@ import java.util.List;
  */
 public class UserDao extends JdbcDaoSupport implements UserDaoImpl {
 
+    /**
+     * 全Userのリストを取得する
+     * @return 全ユーザのリスト
+     * @throws DataAccessException
+     */
     public List<User> getUserList() throws DataAccessException {
         RowMapper<User> rowMapper = new UserRowMapper();
-        return getJdbcTemplate().query("SELECT *, name FROM user", rowMapper);
+        return getJdbcTemplate().query("SELECT * FROM user", rowMapper);
     }
 
+
+    /**
+     * UserをキーにDBからエンティティを取得する
+     * @param user ユーザー
+     * @return @{user}
+     * @throws DataAccessException
+     */
+    public User getUser(User user) throws DataAccessException {
+        RowMapper<User> rowMapper = new UserRowMapper();
+        List<User> userList = getJdbcTemplate().query(String.format( "select * from user where name = '%s'", user.getName()), rowMapper);
+
+        if (userList.size() == 0)
+            return null;
+
+        return userList.get(0);
+
+    }
+
+    /**
+     * User用Mapper
+     */
     protected class UserRowMapper implements RowMapper<User> {
 
         private List<User> UserList = new ArrayList<User>();

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="mydataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName">
+            <value>com.mysql.jdbc.Driver</value>
+        </property>
+        <property name="url">
+            <!--<value>jdbc:mysql://localhost:3306/spring</value>-->
+            <value>jdbc:mysql://54.249.60.45:3306/Chat</value>
+        </property>
+        <property name="username">
+            <value>miyamoto_s</value>
+        </property>
+        <property name="password">
+            <value>658879</value>
+        </property>
+    </bean>
+    <bean id="userDao" class="com.Chat.Dao.UserDao">
+        <property name="dataSource" ref="mydataSource"></property>
+    </bean>
+</beans>

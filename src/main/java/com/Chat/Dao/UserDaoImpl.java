@@ -15,4 +15,6 @@ public interface UserDaoImpl {
     List<User> getUserList() throws DataAccessException;
 
     User getUser(User user);
+
+    public int insert(User completeUser);
 }

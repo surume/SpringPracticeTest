@@ -1,7 +1,7 @@
 package com.Chat.Controller;
 
-import com.Chat.Entity.User;
 import com.Chat.Model.SigninFormModel;
+import com.Chat.Util.ConvertUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +16,7 @@ import java.util.logging.Logger;
  */
 @Controller
 public class LoginController {
+
     /**
      * Logger
      */
@@ -41,22 +42,58 @@ public class LoginController {
     }
 
     /**
-     * サインインしているか確かめる
+     * ログイン処理
+     *
+     * @param signinFormModel サインインフォームモデル
+     * @return
+     */
+    @RequestMapping(value = "/postLoginForm", method = RequestMethod.POST)
+    public String postLoginForm(@ModelAttribute SigninFormModel signinFormModel) {
+        //Log
+        signinFormModel.printFieldLog(logger);
+
+        if (userController.checkLoginUser(signinFormModel))
+            return "chat";
+
+        return "forward:/";
+    }
+
+
+
+    @RequestMapping(value = "/postLoginForm", method = RequestMethod.GET)
+    public String postLoginForm() {
+        return "redirect:/";
+    }
+    /**
+     * サインイン処理
      *
      * @param signinFormModel サインインフォームモデル
      * @return
      */
     @RequestMapping(value = "/postSigninForm", method = RequestMethod.POST)
     public String postSigninForm(@ModelAttribute SigninFormModel signinFormModel) {
+        //Log
+        signinFormModel.printFieldLog(logger);
 
-        logger.info("SigninFormModel.userName : " + signinFormModel.getUserName());
-        logger.info("SigninFormModel.password : " + signinFormModel.getPassword());
+        if (signinFormModel.checkNullField()){
+            logger.info("FormNull");
+            return "redirect:/";
+        }
 
-        User user = new User(signinFormModel.getUserName());
-
-        if (userController.checkSigninUser(user)) {
+        if (userController.checkSigninUser(signinFormModel.getEmail())) {
+            logger.info("サインイン済み");
+            //TODO: なおさんとあかん
             return "chat";
         }
-        return "forward:/login";
+
+        userController.registUser(ConvertUtil.SigninFormToUser(signinFormModel));
+
+
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "/postSigninForm", method = RequestMethod.GET)
+    public String postSigninForm() {
+        return "redirect:/";
     }
 }

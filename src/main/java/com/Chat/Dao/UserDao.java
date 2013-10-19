@@ -4,6 +4,7 @@ import com.Chat.Entity.User;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,30 +21,64 @@ public class UserDao extends JdbcDaoSupport implements UserDaoImpl {
 
     /**
      * 全Userのリストを取得する
+     *
      * @return 全ユーザのリスト
      * @throws DataAccessException
      */
     public List<User> getUserList() throws DataAccessException {
         RowMapper<User> rowMapper = new UserRowMapper();
-        return getJdbcTemplate().query("SELECT * FROM user", rowMapper);
+        return getJdbcTemplate().query("SELECT * FROM user WHERE delete_flag = 0", rowMapper);
     }
 
 
     /**
      * UserをキーにDBからエンティティを取得する
+     *
      * @param user ユーザー
      * @return @{user}
      * @throws DataAccessException
      */
     public User getUser(User user) throws DataAccessException {
         RowMapper<User> rowMapper = new UserRowMapper();
-        List<User> userList = getJdbcTemplate().query(String.format( "select * from user where name = '%s'", user.getName()), rowMapper);
+        List<User> userList = getJdbcTemplate().query(String.format("SELECT * FROM user WHERE delete_flag = 0 AND email = '%s'", user.geteMail()), rowMapper);
 
         if (userList.size() == 0)
             return null;
 
         return userList.get(0);
+    }
 
+    /**
+     * MaxIdを取得する
+     * @return UserテーブルのUser_idの最大値を取得する
+     */
+    public int getMaxId() {
+        RowMapper<User> rowMapper = new UserRowMapper();
+        List<User> userList = getJdbcTemplate().query("SELECT * " +
+                "FROM user " +
+                "WHERE  user_id = (SELECT MAX(user_id) FROM user);", rowMapper);
+        if (userList.size() == 0)
+            return 1;
+
+        return userList.get(0).getId();
+    }
+
+
+    /**
+     * UserをDBにインサートする
+     * @param user ユーザエンティティ
+     * @return 結果件数
+     */
+    @Transactional
+    public int insert(User user) {
+        return getJdbcTemplate().update(
+                "insert into user values (?,?,?,?,?)",
+                user.getId(),
+                user.getName(),
+                user.geteMail(),
+                user.getPassword(),
+                user.getDeleteFlag()
+        );
     }
 
     /**
@@ -61,8 +96,8 @@ public class UserDao extends JdbcDaoSupport implements UserDaoImpl {
             User User = new User();
             User.setId(rs.getInt("user_id"));
             User.setName(rs.getString("name"));
-            User.seteMail("email");
-            User.setPassword("password");
+            User.seteMail(rs.getString("email"));
+            User.setPassword(rs.getString("password"));
             User.setDeleteFlag(rs.getInt("delete_flag"));
 
             return User;

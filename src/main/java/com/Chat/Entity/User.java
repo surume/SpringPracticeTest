@@ -1,5 +1,7 @@
 package com.Chat.Entity;
 
+import com.Chat.Model.SigninFormModel;
+
 /**
  * Userエンティティ
  * User: miyamoto_s
@@ -23,6 +25,12 @@ public class User {
     }
 
     public User() {
+    }
+
+    public User(SigninFormModel signinFormModel) {
+        this.name = signinFormModel.getUserName();
+        this.eMail = signinFormModel.getEmail();
+        this.password = signinFormModel.getPassword();
     }
 
     public Integer getId() {
@@ -59,6 +67,10 @@ public class User {
 
     public boolean isDeleteFlag() {
         return deleteFlag != 0;
+    }
+
+    public int getDeleteFlag() {
+        return deleteFlag;
     }
 
     public void setDeleteFlag(boolean deleteFlag) {

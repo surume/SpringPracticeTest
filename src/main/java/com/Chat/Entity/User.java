@@ -1,11 +1,10 @@
 package com.Chat.Entity;
 
 /**
- * Created with IntelliJ IDEA.
+ * Userエンティティ
  * User: miyamoto_s
  * Date: 2013/10/18
  * Time: 22:06
- * To change this template UserDaoImpl File | Settings | File Templates.
  */
 public class User {
 
@@ -21,6 +20,9 @@ public class User {
 
     public User(String name) {
         this.name = name;
+    }
+
+    public User() {
     }
 
     public Integer getId() {

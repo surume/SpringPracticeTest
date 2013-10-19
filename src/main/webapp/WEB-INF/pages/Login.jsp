@@ -2,7 +2,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <body>
-<h1>ログイン</h1>
+<h1>ログインLogin</h1>
 
 <form:form modelAttribute="signinForm" action="/postSigninForm" method="post">
     <form:textarea path="userName"></form:textarea><br/>

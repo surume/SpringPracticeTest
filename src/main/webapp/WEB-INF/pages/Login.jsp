@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html>
 <body>
 <h1>ログイン</h1>

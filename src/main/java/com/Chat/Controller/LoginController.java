@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.logging.Logger;
 
+/**
+ * ログインコントローラー
+ */
 @Controller
 public class LoginController {
     /**
@@ -26,10 +29,11 @@ public class LoginController {
 
     /**
      * ログインページを表示する
+     *
      * @param model モデル
      * @return LoginPage
      */
-    @RequestMapping(value = "/login" )
+    @RequestMapping(value = "/login")
     public String displayLoginPage(Model model) {
         SigninFormModel signinFormModel = new SigninFormModel();
         model.addAttribute("signinForm", signinFormModel);
@@ -38,6 +42,7 @@ public class LoginController {
 
     /**
      * サインインしているか確かめる
+     *
      * @param signinFormModel サインインフォームモデル
      * @return
      */
@@ -49,7 +54,7 @@ public class LoginController {
 
         User user = new User(signinFormModel.getUserName());
 
-        if (userController.checkSigninUser(user)){
+        if (userController.checkSigninUser(user)) {
             return "chat";
         }
         return "forward:/login";

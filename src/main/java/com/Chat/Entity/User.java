@@ -19,6 +19,10 @@ public class User {
 
     private int deleteFlag;
 
+    public User(String name) {
+        this.name = name;
+    }
+
     public Integer getId() {
         return id;
     }

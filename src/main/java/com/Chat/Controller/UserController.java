@@ -37,6 +37,7 @@ public class UserController {
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String home(Model model) {
         logger.info("Welcome user!");
+
         model.addAttribute("userlist", userDao.getUserList());
         return "user/list";
     }

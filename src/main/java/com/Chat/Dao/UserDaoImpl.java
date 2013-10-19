@@ -13,4 +13,6 @@ import java.util.List;
  */
 public interface UserDaoImpl {
     List<User> getUserList() throws DataAccessException;
+
+    User getUser(User user);
 }

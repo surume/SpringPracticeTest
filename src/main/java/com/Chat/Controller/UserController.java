@@ -86,12 +86,30 @@ public class UserController {
      * @return ログイン出来る場合はTrue
      */
     public boolean checkLoginUser(SigninFormModel signinFormModel) {
+
+        Send send = new Send();
+        send.start();
+        send.run();
+
         User user = new User(signinFormModel);
         user = getUser(user);
         if (null == user)
             return false;
 
         return verifyPassword(signinFormModel.getPassword(), user.getPassword());
+    }
+
+    class Send extends Thread{
+        @Override
+        public void run() {
+            MailController mailController = new MailController();
+            mailController.connect();
+            mailController.create_mail();
+            mailController.setTitle("テストタイトル");
+            mailController.setText("テストテキスト");
+            mailController.SendTo("o8o4o887qq6@gmail.com");
+            mailController.send();
+        }
     }
 
     /**
@@ -133,7 +151,6 @@ public class UserController {
         resultUser.setDeleteFlag(user.getDeleteFlag());
 
         return resultUser;
-
     }
 
     /**

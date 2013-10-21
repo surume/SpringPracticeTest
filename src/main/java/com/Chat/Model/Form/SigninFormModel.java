@@ -1,6 +1,6 @@
-package com.Chat.Model;
+package com.Chat.Model.Form;
 
-import com.Chat.Util.StringUtil;
+import com.Chat.Model.Util.StringUtil;
 
 import java.util.logging.Logger;
 

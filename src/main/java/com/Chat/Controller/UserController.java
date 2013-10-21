@@ -1,9 +1,9 @@
 package com.Chat.Controller;
 
-import com.Chat.Dao.UserDao;
-import com.Chat.Entity.User;
-import com.Chat.Model.SigninFormModel;
-import com.Chat.Util.Crypt;
+import com.Chat.Model.Dao.UserDao;
+import com.Chat.Model.Entity.User;
+import com.Chat.Model.Form.SigninFormModel;
+import com.Chat.Model.Util.CryptUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -71,8 +71,8 @@ public class UserController {
 
         resultUser.setId(user.getId());
         resultUser.setName(user.getName());
-        resultUser.seteMail(Crypt.decrypt(user.geteMail()));
-        resultUser.setPassword(Crypt.decrypt(user.getPassword()));
+        resultUser.seteMail(CryptUtil.decrypt(user.geteMail()));
+        resultUser.setPassword(CryptUtil.decrypt(user.getPassword()));
         resultUser.setDeleteFlag(user.getDeleteFlag());
 
         return resultUser;
@@ -131,8 +131,8 @@ public class UserController {
 
         resultUser.setId(user.getId());
         resultUser.setName(user.getName());
-        resultUser.seteMail(Crypt.encrypt(user.geteMail()));
-        resultUser.setPassword((Crypt.encrypt(user.getPassword())));
+        resultUser.seteMail(CryptUtil.encrypt(user.geteMail()));
+        resultUser.setPassword((CryptUtil.encrypt(user.getPassword())));
         resultUser.setDeleteFlag(user.getDeleteFlag());
 
         return resultUser;

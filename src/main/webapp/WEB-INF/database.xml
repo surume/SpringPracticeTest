@@ -19,7 +19,7 @@
             <value>658879</value>
         </property>
     </bean>
-    <bean id="userDao" class="com.Chat.Dao.UserDao">
+    <bean id="userDao" class="com.Chat.Model.Dao.UserDao">
         <property name="dataSource" ref="mydataSource"></property>
     </bean>
 </beans>

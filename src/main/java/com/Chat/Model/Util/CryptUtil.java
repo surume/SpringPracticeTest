@@ -1,4 +1,4 @@
-package com.Chat.Util;
+package com.Chat.Model.Util;
 
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
@@ -12,7 +12,7 @@ import java.io.UnsupportedEncodingException;
  * Date: 2013/10/20
  * Time: 2:11
  */
-public class Crypt {
+public class CryptUtil {
 
     /**
      * 秘密鍵

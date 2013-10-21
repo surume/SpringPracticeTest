@@ -1,6 +1,6 @@
-package com.Chat.Entity;
+package com.Chat.Model.Entity;
 
-import com.Chat.Model.SigninFormModel;
+import com.Chat.Model.Form.SigninFormModel;
 
 /**
  * Userエンティティ

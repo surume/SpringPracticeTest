@@ -1,6 +1,6 @@
-package com.Chat.Dao;
+package com.Chat.Model.Dao;
 
-import com.Chat.Entity.User;
+import com.Chat.Model.Entity.User;
 import org.springframework.dao.DataAccessException;
 
 import java.util.List;

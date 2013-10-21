@@ -1,4 +1,4 @@
-package com.Chat.Util;
+package com.Chat.Model.Util;
 
 import junit.framework.Assert;
 import org.junit.Before;
@@ -11,11 +11,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.awt.image.CropImageFilter;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
 /**
@@ -28,7 +23,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration("file:src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml")
-public class CryptTests {
+public class CryptUtilTest {
     private MockMvc mockMvc;
 
     @SuppressWarnings("SpringJavaAutowiringInspection")
@@ -43,7 +38,7 @@ public class CryptTests {
     @Test
     public void encryptTest() throws Exception {
         String test = "test";
-        Assert.assertEquals("eVucgzlckDzytMCE6exvQQ==", Crypt.encrypt(test));
+        Assert.assertEquals("eVucgzlckDzytMCE6exvQQ==", CryptUtil.encrypt(test));
     }
 
 
@@ -51,7 +46,7 @@ public class CryptTests {
     public void decryptTest() throws Exception {
         String defalt = "test.hoge@gmail.com";
         String result = "OvS4PMWjEiSTs9DS4y7LM51WlbLitAh8Bjm/OR0TsmQ=";
-        Assert.assertEquals(result, Crypt.encrypt(defalt));
-        Assert.assertEquals(defalt, Crypt.decrypt(result));
+        Assert.assertEquals(result, CryptUtil.encrypt(defalt));
+        Assert.assertEquals(defalt, CryptUtil.decrypt(result));
     }
 }

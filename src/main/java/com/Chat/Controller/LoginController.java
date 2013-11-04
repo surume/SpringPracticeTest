@@ -1,7 +1,7 @@
 package com.Chat.Controller;
 
-import com.Chat.Model.Form.SigninFormModel;
-import com.Chat.Model.Util.ConvertUtil;
+import com.Chat.Form.SigninFormModel;
+import com.Chat.Util.ConvertUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

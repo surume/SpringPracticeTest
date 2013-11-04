@@ -1,9 +1,9 @@
 package com.Chat.Controller;
 
-import com.Chat.Model.Dao.UserDao;
-import com.Chat.Model.Entity.User;
-import com.Chat.Model.Form.SigninFormModel;
-import com.Chat.Model.Util.CryptUtil;
+import com.Chat.Dao.UserDao;
+import com.Chat.Entity.User;
+import com.Chat.Form.SigninFormModel;
+import com.Chat.Util.CryptUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

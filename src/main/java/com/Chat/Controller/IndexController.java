@@ -1,6 +1,7 @@
 package com.Chat.Controller;
 
-import com.Chat.Model.Form.SigninFormModel;
+import com.Chat.Form.SigninFormModel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
+    @Autowired
+    private SigninFormModel signinFormModel;
+
     /**
      * indexページ表示
      * @param model モデル
@@ -18,7 +22,6 @@ public class IndexController {
      */
     @RequestMapping(value = "/")
     public String displayIndexPage(ModelMap model) {
-        SigninFormModel signinFormModel = new SigninFormModel();
         model.addAttribute("signinForm", signinFormModel);
 
         return "index";

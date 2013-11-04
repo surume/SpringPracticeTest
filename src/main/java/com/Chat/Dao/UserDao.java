@@ -1,6 +1,6 @@
-package com.Chat.Model.Dao;
+package com.Chat.Dao;
 
-import com.Chat.Model.Entity.User;
+import com.Chat.Entity.User;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;

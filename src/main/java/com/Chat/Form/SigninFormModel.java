@@ -1,6 +1,7 @@
-package com.Chat.Model.Form;
+package com.Chat.Form;
 
-import com.Chat.Model.Util.StringUtil;
+import com.Chat.Util.StringUtil;
+import org.springframework.stereotype.Component;
 
 import java.util.logging.Logger;
 
@@ -11,6 +12,7 @@ import java.util.logging.Logger;
  * Time: 3:00
  * To change this template use File | Settings | File Templates.
  */
+@Component
 public class SigninFormModel {
     private String userName;
     private String email;
@@ -56,8 +58,8 @@ public class SigninFormModel {
      * @param logger ロガー
      */
     public void printFieldLog(Logger logger){
-        logger.info("[Form] userName : " + this.userName);
-        logger.info("[Form] email : " + this.email);
-        logger.info("[Form] password : " + this.password);
+        logger.info("[com.Chat.Form] userName : " + this.userName);
+        logger.info("[com.Chat.Form] email : " + this.email);
+        logger.info("[com.Chat.Form] password : " + this.password);
     }
 }

@@ -1,4 +1,4 @@
-package com.Chat.Model.Logic;
+package com.Chat.Logic;
 
 import java.util.logging.Logger;
 

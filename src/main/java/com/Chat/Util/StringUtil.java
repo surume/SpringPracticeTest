@@ -1,4 +1,4 @@
-package com.Chat.Model.Util;
+package com.Chat.Util;
 
 /**
  * StringUtil

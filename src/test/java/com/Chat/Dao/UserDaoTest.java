@@ -1,4 +1,4 @@
-package com.Chat.Model.Dao;
+package com.Chat.Dao;
 
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;

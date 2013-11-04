@@ -1,7 +1,7 @@
-package com.Chat.Model.Logic;
+package com.Chat.Logic;
 
-import com.Chat.Model.Dao.UserDao;
-import com.Chat.Model.Entity.User;
+import com.Chat.Dao.UserDao;
+import com.Chat.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.logging.Logger;

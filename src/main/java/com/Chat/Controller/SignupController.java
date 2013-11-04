@@ -1,6 +1,6 @@
 package com.Chat.Controller;
 
-import com.Chat.Model.Form.SigninFormModel;
+import com.Chat.Form.SigninFormModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;

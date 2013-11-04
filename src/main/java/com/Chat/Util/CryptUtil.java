@@ -1,4 +1,4 @@
-package com.Chat.Model.Util;
+package com.Chat.Util;
 
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 

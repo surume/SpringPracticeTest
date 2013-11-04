@@ -1,7 +1,7 @@
-package com.Chat.Model.Util;
+package com.Chat.Util;
 
-import com.Chat.Model.Entity.User;
-import com.Chat.Model.Form.SigninFormModel;
+import com.Chat.Entity.User;
+import com.Chat.Form.SigninFormModel;
 
 /**
  * Created with IntelliJ IDEA.

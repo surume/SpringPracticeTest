@@ -1,4 +1,4 @@
-package com.Chat.Logic;
+package com.Chat.Service;
 
 import java.util.logging.Logger;
 
@@ -7,10 +7,10 @@ import java.util.logging.Logger;
  * User: miyamoto_s
  * Date: 2013/10/22
  */
-public class AccountLogic {
+public class AccountService {
 
     /**
      * ロガー
      */
-    private static final Logger logger = Logger.getLogger(AccountLogic.class.getName());
+    private static final Logger logger = Logger.getLogger(AccountService.class.getName());
 }

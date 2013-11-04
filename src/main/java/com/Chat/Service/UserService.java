@@ -1,22 +1,24 @@
-package com.Chat.Logic;
+package com.Chat.Service;
 
 import com.Chat.Dao.UserDao;
 import com.Chat.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.logging.Logger;
 
 /**
- * UserLogic
+ * UserService
  * User: miyamoto_s
  * Date: 2013/10/22
  * Time: 0:11
  */
-public class UserLogic {
+@Service
+public class UserService {
     /**
      * logger
      */
-    Logger logger = Logger.getLogger(UserLogic.class.getName());
+    Logger logger = Logger.getLogger(UserService.class.getName());
 
     /**
      * ユーザDao

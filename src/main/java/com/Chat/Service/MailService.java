@@ -1,4 +1,4 @@
-package com.Chat.Logic;
+package com.Chat.Service;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -14,7 +14,7 @@ import java.util.Properties;
  * Time: 17:33
  * To change this template use File | Settings | File Templates.
  */
-class MailLogic extends Authenticator {
+class MailService extends Authenticator {
     final String username = "dev.miyamoto.s";
     final String password = "65887987";
     final String from_name = "送信者名";
@@ -27,10 +27,10 @@ class MailLogic extends Authenticator {
     String title = null;
     String contents = null;
 
-    public MailLogic() {
+    public MailService() {
     }
 
-//    public MailLogic(String charset) {
+//    public MailService(String charset) {
 //        this.charset = charset;
 //    }
 

@@ -1,8 +1,6 @@
 package com.Chat.Service;
 
-import com.Chat.Dao.UserDao;
 import com.Chat.Entity.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.logging.Logger;
@@ -20,11 +18,11 @@ public class UserService {
      */
     Logger logger = Logger.getLogger(UserService.class.getName());
 
-    /**
-     * ユーザDao
-     */
-    @Autowired
-    private UserDao userDao;
+//    /**
+//     * ユーザDao
+//     */
+//    @Autowired
+//    private UserDao userDao;
 
     /**
      * サインインしているユーザかチェックする

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2498371932">
+  <component name="DataSourceManagerImpl" format="xml" hash="1214472928">
     <data-source source="LOCAL" name="MyAwsMySQL" product="MySQL" version="5.5.33" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.26 ( Revision: ${bzr.revision-id} )" uuid="0b3f6f65-3500-49b9-976b-1600a9818e65">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
@@ -15,6 +15,19 @@
         </library>
         <library>
           <url>file://$PROJECT_DIR$/mysql-connector-license.txt</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="src:main:resources:hibernate.cfg.xml" product="MySQL" version="5.1.69" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.25 ( Revision: ${bzr.revision-id} )" uuid="e151291b-a61a-47a8-b69a-0ec238b43322">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://133.242.208.43:3306/Chat</jdbc-url>
+      <user-name>hoge</user-name>
+      <user-password>df9cdf9fdf92df92df9ddf93dfe7dfdd</user-password>
+      <libraries>
+        <library>
+          <url>jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.25/mysql-connector-java-5.1.25.jar!/</url>
         </library>
       </libraries>
     </data-source>

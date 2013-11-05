@@ -8,16 +8,25 @@ import com.Chat.Form.SigninFormModel;
  * Date: 2013/10/18
  * Time: 22:06
  */
+//@Entity
+//@Proxy(lazy = false)
+//@Table(name = "User")
 public class User {
 
+//    @Id
+//    @Column (name = "id")
     private Integer id;
 
+//    @Column(name = "name")
     private String name;
 
+//    @Column(name = "email")
     private String eMail;
 
+//    @Column(name = "password")
     private String password;
 
+//    @Column(name = "deleteFlag")
     private int deleteFlag;
 
     public User(String name) {
@@ -65,16 +74,8 @@ public class User {
         this.name = name;
     }
 
-    public boolean isDeleteFlag() {
-        return deleteFlag != 0;
-    }
-
     public int getDeleteFlag() {
         return deleteFlag;
-    }
-
-    public void setDeleteFlag(boolean deleteFlag) {
-        this.deleteFlag = deleteFlag? 1:0;
     }
 
     public void setDeleteFlag(int deleteFlag) {

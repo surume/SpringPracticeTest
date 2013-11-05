@@ -167,18 +167,6 @@
         </dependency>
 
 
-        <!--・antlr-2.7.7.jar-->
-        <!--・dom4j-1.6.1.jar-->
-        <!--・javassist-3.15.0-GA.jar-->
-        <!--・jboss-logging-3.1.0.GA.jar-->
-        <!--・jboss-transaction-api_1.1_spec-1.0.0.Final.jar-->
-        <!--・commons-logging-1.1.1.jar-->
-        <!--・commons-dbcp-1.4.jar-->
-        <!--・commons-pool-1.6.jar-->
-        <!--・aopalliance.jar-->
-        <!--・aspectjweaver.jar-->
-
-
         <!-- JUnit -->
         <dependency>
             <groupId>junit</groupId>
@@ -214,6 +202,17 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.6.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.12.0.GA</version>
+        </dependency>
     </dependencies>
 
     <build>

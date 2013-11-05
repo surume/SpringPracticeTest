@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 /**
  * インデックスコントローラー
  */
@@ -42,7 +44,8 @@ public class IndexController {
         user.setPassword("pass");
         user.setDeleteFlag(0);
 
-        accountService.addUser(user);
+        List<User> userList = accountService.findUser();
+        logger.info(userList);
         model.addAttribute("signinForm", signinFormModel);
 
         return "index";

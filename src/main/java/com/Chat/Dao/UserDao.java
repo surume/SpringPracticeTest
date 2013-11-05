@@ -1,10 +1,11 @@
 package com.Chat.Dao;
 
 import com.Chat.Entity.User;
-import org.hibernate.classic.Session;
-import org.hibernate.exception.ConstraintViolationException;
-import org.springframework.dao.DuplicateKeyException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * UserDaoクラス
@@ -15,13 +16,20 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UserDao  {
 
-    public void addUser(Session session, User user){
-        try {
-            session.save(user);
-            session.flush();
-        } catch (ConstraintViolationException e){
-            throw new DuplicateKeyException("プライマリーキーが重複しています");
-        }
+//    public void addUser(Session session, User user){
+//        try {
+//            session.save(user);
+//            session.flush();
+//        } catch (ConstraintViolationException e){
+//            throw new DuplicateKeyException("プライマリーキーが重複しています");
+//        }
+//    }
+
+    @Autowired
+    private HibernateTemplate hibernateTemplate;
+
+    public List<User> findUser(){
+        return  hibernateTemplate.find("from User");
     }
 
 //    // *** 検索 ***

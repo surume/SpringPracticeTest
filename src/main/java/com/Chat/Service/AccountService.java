@@ -1,11 +1,9 @@
 package com.Chat.Service;
 
-import com.Chat.Dao.UserDao;
 import com.Chat.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -16,60 +14,38 @@ import java.util.logging.Logger;
 @Service
 public class AccountService {
 
+    @Autowired
+    private MailService mailService;
+
     /**
      * ロガー
      */
     private static final Logger logger = Logger.getLogger(AccountService.class.getName());
-    
+
     @Autowired
-    private UserDao userDao;
+    private UserService userService;
 
-    public List<User> findUser(){
-        return userDao.findUser();
+    /**
+     * サインイン処理
+     *
+     * @param user サインインフォーム
+     * @return 遷移先文字列
+     */
+    public String execSignup(User user) {
+        if (user.checkNullField())
+            return "redirect:/";
+
+        if (userService.checkSigninUser(user))
+            return "chat";
+
+        int token = (int)(Math.random() * 9999);
+//        userService.registUser(user);
+        mailService.setText("まとめ登録確認" + token);
+        mailService.create_mail();
+        mailService.setTitle("まとめ登録確認メール");
+        mailService.SendTo(user.geteMail());
+        mailService.send();
+
+        return "redirect:/";
     }
-
-//    public void addUser(User user) {
-//        Session session = null;
-//        Transaction transaction = null;
-//
-//
-//        try {
-//            session =  getSession();
-//            transaction = session.beginTransaction();
-//            new UserDao().addUser(session, user);
-//            transaction.commit();
-//        } catch (HibernateException e){
-//            if (transaction != null){
-//                try {
-//                    transaction.rollback();
-//                }catch (HibernateException ex){
-//                    System.out.print("システムエラー" + ex);
-//                }
-//            }
-//            throw e;
-//        } finally {
-//            if(session != null){
-//                try {
-//                    session.close();
-//                } catch (HibernateException e){
-//                    System.out.println("システムエラー：" + e);
-//                }
-//            }
-//        }
-//    }
-//
-//    private static SessionFactory sessionFactory = null;
-//    private static synchronized SessionFactory getSessionFactory() throws HibernateException{
-//        if (sessionFactory == null){
-//            Configuration cfg = new Configuration();
-//            cfg.configure();
-//            sessionFactory = cfg.buildSessionFactory();
-//        }
-//        return sessionFactory;
-//    }
-//
-//    private Session getSession() throws HibernateException{
-//        SessionFactory sf = getSessionFactory();
-//        return sf.openSession();
-//    }
 }

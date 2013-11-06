@@ -6,11 +6,10 @@ import org.springframework.stereotype.Component;
 import java.util.logging.Logger;
 
 /**
- * Created with IntelliJ IDEA.
+ * サインイン入力フォーム
  * User: miyamoto_s
  * Date: 2013/10/19
  * Time: 3:00
- * To change this template use File | Settings | File Templates.
  */
 @Component
 public class SigninFormModel {

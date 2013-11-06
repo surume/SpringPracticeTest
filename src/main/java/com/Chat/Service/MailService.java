@@ -1,5 +1,7 @@
 package com.Chat.Service;
 
+import org.springframework.stereotype.Service;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -8,16 +10,16 @@ import java.util.Date;
 import java.util.Properties;
 
 /**
- * Created with IntelliJ IDEA.
+ * MailService
  * User: miyamoto_s
  * Date: 2013/10/20
- * Time: 17:33
- * To change this template use File | Settings | File Templates.
  */
+@Service
 class MailService extends Authenticator {
-    final String username = "dev.miyamoto.s";
-    final String password = "65887987";
-    final String from_name = "送信者名";
+    final String username = "huga.info";
+//    final String password = "65887987";
+    final String password = "z1VWbqcA";
+    final String from_name = "まとめ";
 
     final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
     Session session = null;

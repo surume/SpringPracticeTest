@@ -4,11 +4,14 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="com.Chat.Entity.User" table="User">
-        <id name="id" column="id" type="int"/>
-        <property name="name" column="name" type="java.lang.String"/>
-        <property name="eMail" column="eMail" type="java.lang.String"/>
+        <id name="id" column="user_id" type="int"/>
+        <property name="name" column="user_name" type="java.lang.String"/>
+        <property name="eMail" column="email_adress" type="java.lang.String"/>
         <property name="password" column="password" type="java.lang.String"/>
-        <property name="deleteFlag" column="deleteFlag" type="int"/>
+        <property name="tokenId" column="token_id" type="java.lang.String" />
+        <property name="validFlag" column="valid_flag" type="boolean" />
+        <property name="deleteFlag" column="delete_flag" type="boolean"/>
+        
     </class>
 
 </hibernate-mapping>

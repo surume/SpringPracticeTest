@@ -1,6 +1,7 @@
 package com.Chat.Entity;
 
 import com.Chat.Form.SigninFormModel;
+import com.mysql.jdbc.StringUtils;
 
 /**
  * Userエンティティ
@@ -8,26 +9,21 @@ import com.Chat.Form.SigninFormModel;
  * Date: 2013/10/18
  * Time: 22:06
  */
-//@Entity
-//@Proxy(lazy = false)
-//@Table(name = "User")
 public class User {
 
-//    @Id
-//    @Column (name = "id")
     private Integer id;
 
-//    @Column(name = "name")
     private String name;
 
-//    @Column(name = "email")
     private String eMail;
 
-//    @Column(name = "password")
     private String password;
 
-//    @Column(name = "deleteFlag")
-    private int deleteFlag;
+    private String tokenId;
+
+    private boolean validFlag;
+
+    private boolean deleteFlag;
 
     public User(String name) {
         this.name = name;
@@ -74,11 +70,32 @@ public class User {
         this.name = name;
     }
 
-    public int getDeleteFlag() {
+    public String getTokenId() {
+        return tokenId;
+    }
+
+    public void setTokenId(String tokenId) {
+        this.tokenId = tokenId;
+    }
+
+    public boolean isValidFlag() {
+        return validFlag;
+    }
+
+    public void setValidFlag(boolean validFlag) {
+        this.validFlag = validFlag;
+    }
+
+    public boolean isDeleteFlag() {
         return deleteFlag;
     }
 
-    public void setDeleteFlag(int deleteFlag) {
+    public void setDeleteFlag(boolean deleteFlag) {
         this.deleteFlag = deleteFlag;
+    }
+
+    public boolean checkNullField() {
+        return StringUtils.isNullOrEmpty(eMail)
+                || StringUtils.isNullOrEmpty(name);
     }
 }

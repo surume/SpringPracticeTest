@@ -21,7 +21,7 @@
 
 
 新規登録
-<form:form modelAttribute="signinForm" action="/postSigninForm" method="post">
+<form:form modelAttribute="signinForm" action="/account/signup" method="post">
     <p>ユーザーネーム</p>
     <form:textarea cssClass="userTextArea" path="userName" cols="50" rows="1"/>
     <p>メールアドレス</p>

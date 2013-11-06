@@ -11,7 +11,6 @@ import java.util.List;
  * UserDaoクラス
  * User: miyamoto_s
  * Date: 2013/10/18
- * Time: 22:20
  */
 @Repository
 public class UserDao {

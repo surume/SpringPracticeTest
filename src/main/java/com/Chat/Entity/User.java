@@ -7,7 +7,6 @@ import com.mysql.jdbc.StringUtils;
  * Userエンティティ
  * User: miyamoto_s
  * Date: 2013/10/18
- * Time: 22:06
  */
 public class User {
 

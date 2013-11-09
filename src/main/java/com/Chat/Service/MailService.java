@@ -31,10 +31,6 @@ class MailService extends Authenticator {
     public MailService() {
     }
 
-//    public MailService(String charset) {
-//        this.charset = charset;
-//    }
-
     boolean isConnected() {
         return session != null;
     }
@@ -76,9 +72,7 @@ class MailService extends Authenticator {
         if (hasMessage()) return;
         mimeMessage = new MimeMessage(session);
         try {
-// 送信元メールアドレスと送信者名を指定
             mimeMessage.setFrom(new InternetAddress(username + "@gmail.com", from_name, charset));
-// メールの形式を指定
             mimeMessage.setHeader("Content-Type", "text/html");
         } catch (Exception e) {
             e.printStackTrace();
@@ -104,7 +98,6 @@ class MailService extends Authenticator {
                 mimeMessage.setSubject(title, charset);
                 mimeMessage.setText(contents, charset);
                 mimeMessage.setContent(contents, "text/html; charset=UTF8");
-// 送信日付を指定
                 mimeMessage.setSentDate(new Date());
                 Transport.send(mimeMessage);
             } catch (Exception e) {

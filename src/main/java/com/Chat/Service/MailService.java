@@ -16,10 +16,9 @@ import java.util.Properties;
  */
 @Service
 class MailService extends Authenticator {
-    final String username = "huga.info";
-//    final String password = "65887987";
-    final String password = "z1VWbqcA";
-    final String from_name = "まとめ";
+    private final String username = "huga.info";
+    private final String password = "z1VWbqcA";
+    private final String from_name = "まとめ";
 
     final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
     Session session = null;
@@ -104,6 +103,7 @@ class MailService extends Authenticator {
                 mimeMessage.setRecipients(Message.RecipientType.TO, sendTo);
                 mimeMessage.setSubject(title, charset);
                 mimeMessage.setText(contents, charset);
+                mimeMessage.setContent(contents, "text/html; charset=UTF8");
 // 送信日付を指定
                 mimeMessage.setSentDate(new Date());
                 Transport.send(mimeMessage);

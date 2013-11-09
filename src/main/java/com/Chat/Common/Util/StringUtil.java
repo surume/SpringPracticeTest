@@ -1,4 +1,4 @@
-package com.Chat.Util;
+package com.Chat.Common.Util;
 
 /**
  * StringUtil

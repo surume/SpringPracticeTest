@@ -3,7 +3,7 @@ package com.Chat.Controller;
 import com.Chat.Entity.User;
 import com.Chat.Form.SigninFormModel;
 import com.Chat.Service.AccountService;
-import com.Chat.Util.ConvertUtil;
+import com.Chat.Common.Util.ConvertUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,7 +38,7 @@ public class AccountController {
      * サインアップ処理
      *
      * @param signinFormModel サインインフォームモデル
-     * @return
+     * @return nextPageStr
      */
     @RequestMapping(value = "signup", method = RequestMethod.POST)
     public String signupController(@ModelAttribute SigninFormModel signinFormModel) {
@@ -47,9 +47,17 @@ public class AccountController {
     }
 
 
-    @RequestMapping(value = "confirm_email")
+    /**
+     * ConfirmEmail
+     * @param data data
+     * @param count count
+     * @param locale locale
+     * @param model model
+     * @return nextpage
+     */
+    @RequestMapping(value = "confirm_email/{id}/{token}")
     public String confirmEmail(@RequestParam("id") String data,
-                               @RequestParam("pass") Integer count,
+                               @RequestParam("token") Integer count,
                                Locale locale,
                                Model model) {
 

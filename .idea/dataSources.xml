@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="891456880">
+  <component name="DataSourceManagerImpl" format="xml" hash="331155257">
     <data-source source="LOCAL" name="MyAwsMySQL" product="MySQL" version="5.5.33" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.26 ( Revision: ${bzr.revision-id} )" uuid="0b3f6f65-3500-49b9-976b-1600a9818e65">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>

@@ -32,9 +32,9 @@ public class UserDao {
      * emailをキーにして有効なユーザを検索する
      *
      * @param email Eメール
-     * @return User
+     * @return 有効なUser
      */
-    public User findUser(String email) {
+    public User findValidUser(String email) {
         List<User> userList = hibernateTemplate.find(
                 "from User where eMail = ? " +
                         "and deleteFlag = ? " +
@@ -43,7 +43,27 @@ public class UserDao {
         return 0 == userList.size() ? null : userList.get(0);
     }
 
+    /**
+     * emailをキーにして有効でも無効でもないユーザを検索する
+     *
+     * @param email Eメール
+     * @return 有効でも無効でもないUser
+     */
+    public User findUser(String email) {
+        List<User> userList = hibernateTemplate.find("from User where eMail = ? ", email);
+
+        return 0 == userList.size() ? null : userList.get(0);
+    }
+
+    /**
+     *
+     * @param user
+     */
     public void insert(User user) {
         hibernateTemplate.saveOrUpdate(user);
+    }
+
+    public int findMaxId(){
+        return hibernateTemplate.getMaxResults();
     }
 }

@@ -1,6 +1,6 @@
 package com.Chat.Form;
 
-import com.Chat.Util.StringUtil;
+import com.Chat.Common.Util.StringUtil;
 import org.springframework.stereotype.Component;
 
 import java.util.logging.Logger;

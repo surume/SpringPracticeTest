@@ -5,7 +5,6 @@ import com.Chat.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -27,11 +26,16 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-
-    public List<User> findUser(){
-        return userDao.findUser();
+    /**
+     * 有効でも無効でもない対象ユーザを検索する
+     *
+     * @param user 対象ユーザ
+     * @return 有効でもない
+     */
+    public User findNeitherUser(User user) {
+        User u = userDao.findUser(user.geteMail());
+        return u != null ? u : null;
     }
-
 
     /**
      * サインインしているユーザかチェックする
@@ -39,10 +43,15 @@ public class UserService {
      * @return サインインしている場合はTrue
      */
     public boolean checkSigninUser(User checkUser) {
-        User user = userDao.findUser(checkUser.geteMail());
+        User user = userDao.findValidUser(checkUser.geteMail());
         return user != null;
     }
 
+    /**
+     * ユーザを登録する
+     *
+     * @param user 登録対象ユーザ
+     */
     public void registUser(User user) {
         userDao.insert(user);
     }

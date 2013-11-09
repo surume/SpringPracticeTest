@@ -1,4 +1,4 @@
-package com.Chat.Util;
+package com.Chat.Common.Util;
 
 import junit.framework.Assert;
 import org.junit.Before;
